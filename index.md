@@ -1,5 +1,6 @@
 # 3 Joint Robotic Arm With Claw
-The 3 Joint Robotic Arm is a fun device that is controlled using a controller and 
+The 3 Joint Robotic Arm is a fun device that is controlled using a controller and can move 360 degrees! The claw on the robot is even capable of carrying small objects.
+
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
 | Tarun S | Irvington High School | Electrical Engineering/ Mechanical Engineering | Incoming Junior
