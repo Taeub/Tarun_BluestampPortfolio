@@ -10,34 +10,163 @@ The 3 Joint Robotic Arm is a fun device that is controlled using a controller an
 # Final Milestone
 
 # Second Milestone
-My second milestone was the assembly of my controller and getting output from it. The controller itself is literally just an acrylic piece, and there are 2 joystick modules screwed into it. The joystick modules have a potentiometer and depending on the direction you move the joystick the module produces an output from 0V to 5V or anywhere in between and the arduino converts the voltage into a numerical value on the serial monitor. With this milestone I had trouble importing libraries for my code to work, and I needed a library because libraries make things easier in the sense where I don't have to recode some code that someone has already written. I realized that in every library there is a needed source folder to narrow the arduinos search for files, so i added a source folder and everything worked. Next I plan to combine my first milestone which was fully assembling the robot and ensuring that all the components work, and my second milestone which was getting output from my controller to create a fully functioning arm, and after that I plan to make some modifications to the project by smoothening the movement of the robot.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/scAhvEodq6w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
+My second milestone was the assembly of my controller and getting output from it. The controller itself is literally just an acrylic piece, and there are 2 joystick modules screwed into it. The joystick modules have a potentiometer and depending on the direction you move the joystick the module produces an output from 0V to 5V or anywhere in between and the arduino converts the voltage into a numerical value on the serial monitor. With this milestone I had trouble importing libraries for my code to work, and I needed a library because libraries make things easier in the sense where I don't have to recode some code that someone has already written. I realized that in every library there is a needed source folder to narrow the arduinos search for files, so i added a source folder and everything worked. Next I plan to combine my first milestone which was fully assembling the robot and ensuring that all the components work, and my second milestone which was getting output from my controller to create a fully functioning arm, and after that I plan to make some modifications to the project by smoothening the movement of the robot.
+
 # First Milestone
-My first milestone was the assembly of my intensive project, the 3 Joint Robot Arm. I completed the assembly of the arm and for the arm I first started by building the base which holds down the battery, the arduino with its nano shield, and the motor which moves the base of the arm. There are 4 motors in total controlling the movement of the arm. The base motor controls the direction that the arm is in. 2 motors control 2 different hinges while there is another motor that controls the claw. The claw is only attached to one finger of the claw but the other is also in motion as a result of the gear that connects the two fingers. I also took time to cable manage the motor wires so that it would not hinder the movement of the robot. Finally I wrote some code to reset the robot to its original position whenever the arduino is on so when i change the direction of the motors and turn on the arduino, the arm will return to 90 degrees. I had trouble screwing down the base of the arm to the motor which hindered the motors ability to move the robot. The screw was too short, and I then found a longer screw to screw down the base to the motor. Next I plan to assemble, connect, and test the controller. I plan to write code to recieve and print the output of the joystick module. 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/uOCtF2aWj2o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
+My first milestone was the assembly of my intensive project, the 3 Joint Robot Arm. I completed the assembly of the arm and for the arm I first started by building the base which holds down the battery, the arduino with its nano shield, and the motor which moves the base of the arm. There are 4 motors in total controlling the movement of the arm. The base motor controls the direction that the arm is in. 2 motors control 2 different hinges while there is another motor that controls the claw. The claw is only attached to one finger of the claw but the other is also in motion as a result of the gear that connects the two fingers. I also took time to cable manage the motor wires so that it would not hinder the movement of the robot. Finally I wrote some code to reset the robot to its original position whenever the arduino is on so when i change the direction of the motors and turn on the arduino, the arm will return to 90 degrees. I had trouble screwing down the base of the arm to the motor which hindered the motors ability to move the robot. The screw was too short, and I then found a longer screw to screw down the base to the motor. Next I plan to assemble, connect, and test the controller. I plan to write code to recieve and print the output of the joystick module. 
+
 # Starter Project
-My starter project is the Useless box, a prank box that provides hours of entertainment! The box itself is activated when the switch at the top is flipped, and then the acrylic arm attached the a motor is propelled up and the arm flips a hinge up and hits the switch again to turn it off. After the switch is hit by the arm, the arm retracts and hits a snap switch which stops the arm. The PCB has an LED, a snap switch, PCB terminal, and the switch at the top of the box soldered on. The build itself is powered by 3 triple-A batteries. While building the project i had an extremely hard time securing the case which I eventually solved by using a clamp to secure the corner posts so that i could put a screw through the post. This created an imprint of the screw which eventually made it easier to screw into the box. Next I plan to use my knowledge about motors to build the 3 Joint Robotic Arm.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Q8K0SotvSBg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+My starter project is the Useless box, a prank box that provides hours of entertainment! The box itself is activated when the switch at the top is flipped, and then the acrylic arm attached the a motor is propelled up and the arm flips a hinge up and hits the switch again to turn it off. After the switch is hit by the arm, the arm retracts and hits a snap switch which stops the arm. The PCB has an LED, a snap switch, PCB terminal, and the switch at the top of the box soldered on. The build itself is powered by 3 triple-A batteries. While building the project i had an extremely hard time securing the case which I eventually solved by using a clamp to secure the corner posts so that i could put a screw through the post. This created an imprint of the screw which eventually made it easier to screw into the box. Next I plan to use my knowledge about motors to build the 3 Joint Robotic Arm.
 
 # Schematics 
 
 # Code
 
 ```c++
-void setup() {
-  // put your setup code here, to run once:
-  Serial.begin(9600);
-  Serial.println("Hello World!");
+#include <CokoinoArm.h>
+#define buzzerPin 9
+
+CokoinoArm arm;
+int xL,yL,xR,yR;
+
+const int act_max=10;    //Default 10 action,4 the Angle of servo
+int act[act_max][4];    //Only can change the number of action
+int num=0,num_do=0;
+
+void turnUD(void){
+  if(xL!=512){
+    if(0<=xL && xL<=100){arm.up(10);return;}
+    if(900<xL && xL<=1024){arm.down(10);return;} 
+    if(100<xL && xL<=200){arm.up(20);return;}
+    if(800<xL && xL<=900){arm.down(20);return;}
+    if(200<xL && xL<=300){arm.up(25);return;}
+    if(700<xL && xL<=800){arm.down(25);return;}
+    if(300<xL && xL<=400){arm.up(30);return;}
+    if(600<xL && xL<=700){arm.down(30);return;}
+    if(400<xL && xL<=480){arm.up(35);return;}
+    if(540<xL && xL<=600){arm.down(35);return;} 
+    }
 }
-
-void loop() {
-  // put your main code here, to run repeatedly:
-
+void turnLR(void){
+  if(yL!=512){
+    if(0<=yL && yL<=100){arm.right(0);return;}
+    if(900<yL && yL<=1024){arm.left(0);return;}  
+    if(100<yL && yL<=200){arm.right(5);return;}
+    if(800<yL && yL<=900){arm.left(5);return;}
+    if(200<yL && yL<=300){arm.right(10);return;}
+    if(700<yL && yL<=800){arm.left(10);return;}
+    if(300<yL && yL<=400){arm.right(15);return;}
+    if(600<yL && yL<=700){arm.left(15);return;}
+    if(400<yL && yL<=480){arm.right(20);return;}
+    if(540<yL && yL<=600){arm.left(20);return;}
+  }
+}
+void turnCO(void){
+  if(xR!=512){
+    if(0<=xR && xR<=100){arm.close(0);return;}
+    if(900<xR && xR<=1024){arm.open(0);return;} 
+    if(100<xR && xR<=200){arm.close(5);return;}
+    if(800<xR && xR<=900){arm.open(5);return;}
+    if(200<xR && xR<=300){arm.close(10);return;}
+    if(700<xR && xR<=800){arm.open(10);return;}
+    if(300<xR && xR<=400){arm.close(15);return;}
+    if(600<xR && xR<=700){arm.open(15);return;}
+    if(400<xR && xR<=480){arm.close(20);return;}
+    if(540<xR && xR<=600){arm.open(20);return;} 
+    }
+}
+void date_processing(int *x,int *y){
+  if(abs(512-*x)>abs(512-*y))
+    {*y = 512;}
+  else
+    {*x = 512;}
+}
+void buzzer(int H,int L){
+  while(yR<420){
+    digitalWrite(buzzerPin,HIGH);
+    delayMicroseconds(H);
+    digitalWrite(buzzerPin,LOW);
+    delayMicroseconds(L);
+    yR = arm.JoyStickR.read_y();
+    }
+  while(yR>600){
+    digitalWrite(buzzerPin,HIGH);
+    delayMicroseconds(H);
+    digitalWrite(buzzerPin,LOW);
+    delayMicroseconds(L);
+    yR = arm.JoyStickR.read_y();
+    }
+}
+void C_action(void){
+  if(yR>800){
+    int *p;
+    p=arm.captureAction();
+    for(char i=0;i<4;i++){
+    act[num][i]=*p;
+    p=p+1;     
+    }
+    num++;
+    num_do=num;
+    if(num>=act_max){
+      num=0;
+      buzzer(600,400);
+      }
+    while(yR>600){yR = arm.JoyStickR.read_y();}
+    
+  }
+}
+void Do_action(void){
+  if(yR<220){
+    buzzer(200,300);
+    for(int i=0;i<num_do;i++){
+      arm.do_action(act[i],15);
+      }
+    num=0;
+    while(yR<420){yR = arm.JoyStickR.read_y();}
+    for(int i=0;i<2000;i++){
+      digitalWrite(buzzerPin,HIGH);
+      delayMicroseconds(200);
+      digitalWrite(buzzerPin,LOW);
+      delayMicroseconds(300);        
+    }
+  }
+}
+void setup() {
+  Serial.begin(9600);
+  //arm of servo motor connection pins
+  arm.ServoAttach(4,5,6,7);
+  //arm of joy stick connection pins : xL,yL,xR,yR
+  arm.JoyStickAttach(A0,A1,A2,A3);
+  pinMode(buzzerPin,OUTPUT);
+}void loop() {
+  xL = arm.JoyStickL.read_x();
+  yL = arm.JoyStickL.read_y();
+  xR = arm.JoyStickR.read_x();
+  yR = arm.JoyStickR.read_y();
+  date_processing(&xL,&yL);
+  date_processing(&xR,&yR);
+  turnUD();
+  turnLR();
+  turnCO();
+  C_action();
+  Do_action();
+  Serial.print(arm.JoyStickL.read_x());
+  Serial.print("\t");
+  Serial.print(arm.JoyStickL.read_y());
+  Serial.print("\t");
+  Serial.print(arm.JoyStickR.read_x());
+  Serial.print("\t");
+  Serial.print(arm.JoyStickR.read_y());
+  Serial.println(" ");
 }
 ```
 
