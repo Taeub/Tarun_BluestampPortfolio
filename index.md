@@ -9,6 +9,8 @@ The 3 Joint Robotic Arm is a fun device that is controlled using a controller an
   
 # Final Milestone
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/t2j5NnhMgvQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 My third milestone was the combination of my second milestone and first milestone with the controller and the arm. The arm is powered by 5 triple A batteries through the nano shield which holds the arduino nano. The combination of the controller and arm allows the controller to move the arm using the joystick modules. The potentiometer inside the joystick module inputs a certain voltage based on the direction that the joystick is pointing and the arduino converts this voltage into a numerical value. This numerical value is then inputted into my code which determines where the arm should be. Depending on the axis the arm moves in a different way. One challenge I had was actually getting the robot to reset after I turn it off and turn it back on meaning that it would start out at 90 degrees on all motors when I start the project, but by borrowing my code from my first milestone I was able to do it. I found out that the problem was as simple as adding a delay to the code. Now, I plan to make modifications like making the controller wireless with a bluetooth module and even printing a shell
 
 # Second Milestone
