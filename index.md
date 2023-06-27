@@ -5,7 +5,7 @@ The 3 Joint Robotic Arm is a fun device that is controlled using a controller an
 |:--:|:--:|:--:|:--:|
 | Tarun S | Irvington High School | Electrical Engineering/ Mechanical Engineering | Incoming Junior
 
-![Headstone Image] [Tarun-Headshot.png]
+![Headstone Image] (Tarun-Headshot.png)
   
 # Final Milestone
 
