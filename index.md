@@ -178,17 +178,17 @@ void setup() {
 
 | **Part** | **Note** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|
-| Cokoino arm robot kit | Contains complete arm and controller for Cokoino arm robot | $49.99 | [Amazon] (https://www.amazon.com/LK-COKOINO-Compliment-Engineering-Technology/dp/B081FG1JQ1) |
+| Cokoino arm robot kit | Contains complete arm and controller for Cokoino arm robot | $49.99 | (https://www.amazon.com/LK-COKOINO-Compliment-Engineering-Technology/dp/B081FG1JQ1) |
 |:--:|:--:|:--:|:--:|
-| 2 HC-05 bluetooth modules | used for connecting controller and arm wirelessly | $15.99 | [Amazon] https://www.amazon.com/HiLetgo-Bluetooth-Transceiver-Integrated-Communication/dp/B07VL725T8/ref=sr_1_5?keywords=HC-05+bluetooth+module&qid=1689044968&sr=8-5 |
+| 2 HC-05 bluetooth modules | used for connecting controller and arm wirelessly | $15.99 | (https://www.amazon.com/HiLetgo-Bluetooth-Transceiver-Integrated-Communication/dp/B07VL725T8/ref=sr_1_5?keywords=HC-05+bluetooth+module&qid=1689044968&sr=8-5) |
 |:--:|:--:|:--:|:--:|
-| 2 DC motors | Used to essentially turn the robotic arm into a rover | $8.90 | [Amazon] (https://www.amazon.com/Stemedu-Gearbox-Motor-200RPM-Arduino/dp/B07L881GXZ/ref=sr_1_5?crid=251PBZYJ4EC2Q&keywords=2+dc+motors+with+wheel&qid=1689045181&sprefix=2+dc+motors+with+wheel%2Caps%2C139&sr=8-5) |
+| 2 DC motors | Used to essentially turn the robotic arm into a rover | $8.90 | (https://www.amazon.com/Stemedu-Gearbox-Motor-200RPM-Arduino/dp/B07L881GXZ/ref=sr_1_5?crid=251PBZYJ4EC2Q&keywords=2+dc+motors+with+wheel&qid=1689045181&sprefix=2+dc+motors+with+wheel%2Caps%2C139&sr=8-5) |
 |:--:|:--:|:--:|:--:|
-| 1 swivel wheel | To help turn the robot with the help of the 2 dc motors | $1.75 | [Amazon] (https://www.amazon.com/Cofufu-Plastic-Rectangle-Swivel-Caster/dp/B00F5PNISQ/ref=sr_1_2?crid=KW68J9MR7CPP&keywords=swivel+wheel+robotics&qid=1689045972&sprefix=swivel+wheel+robotics%2Caps%2C157&sr=8-2) |
+| 1 swivel wheel | To help turn the robot with the help of the 2 dc motors | $1.75 | (https://www.amazon.com/Cofufu-Plastic-Rectangle-Swivel-Caster/dp/B00F5PNISQ/ref=sr_1_2?crid=KW68J9MR7CPP&keywords=swivel+wheel+robotics&qid=1689045972&sprefix=swivel+wheel+robotics%2Caps%2C157&sr=8-2) |
 |:--:|:--:|:--:|:--:|
-| 1 5xAA battery pack | Used to power the entirety of the arm (4 servos and bluetooth module) | $4.00 | [Amazon] (https://www.amazon.com/LampVPath-Battery-Holder-Leads-Wires/dp/B07WRQ44YK/ref=sr_1_6?crid=3OUOUDN2BFP73&keywords=5+AA+battery+pack&qid=1689046519&sprefix=5+aa+battery+pack%2Caps%2C158&sr=8-6) |
+| 1 5xAA battery pack | Used to power the entirety of the arm (4 servos and bluetooth module) | $4.00 | (https://www.amazon.com/LampVPath-Battery-Holder-Leads-Wires/dp/B07WRQ44YK/ref=sr_1_6?crid=3OUOUDN2BFP73&keywords=5+AA+battery+pack&qid=1689046519&sprefix=5+aa+battery+pack%2Caps%2C158&sr=8-6) |
 |:--:|:--:|:--:|:--:|
-| 1 4xAA battery pack | Used to power 2 joystick modules and a bluetooth module | $3.24 | [Amazon] (https://www.amazon.com/LAMPVPATH-Battery-Holder-Leads-Wires/dp/B07T7MTRZX/ref=sr_1_3?crid=VMHQ24S2FOYN&keywords=4+AA+battery+holder&qid=1689046733&sprefix=4+aa+battery+holde%2Caps%2C141&sr=8-3) |
+| 1 4xAA battery pack | Used to power 2 joystick modules and a bluetooth module | $3.24 | (https://www.amazon.com/LAMPVPATH-Battery-Holder-Leads-Wires/dp/B07T7MTRZX/ref=sr_1_3?crid=VMHQ24S2FOYN&keywords=4+AA+battery+holder&qid=1689046733&sprefix=4+aa+battery+holde%2Caps%2C141&sr=8-3) |
 |:--:|:--:|:--:|:--:|
 | Arduino nano | 2nd arduino nano used for the bluetooth module and joystick module to make controller wireless | $12.98 | [Amazon] (https://www.amazon.com/Deegoo-ATmega328P-Microcontroller-Board-Arduino/dp/B07R9VWD39/ref=sr_1_9?crid=3T4FJ173WNZON&keywords=arduino+nano&qid=1689046855&sprefix=arduino+nano%2Caps%2C133&sr=8-9) |
 |:--:|:--:|:--:|:--:|
