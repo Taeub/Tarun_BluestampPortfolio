@@ -178,7 +178,7 @@ void setup() {
 
 | **Part** | **Note** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|
-| Cokoino arm robot kit | Contains complete arm and controller for Cokoino arm robot | $49.99 |<a href="https://www.amazon.com/LK-COKOINO-Compliment-Engineering-Technology/dp/B081FG1JQ1"> Link</a>) |
+| Cokoino arm robot kit | Contains complete arm and controller for Cokoino arm robot | $49.99 |<a href="https://www.amazon.com/LK-COKOINO-Compliment-Engineering-Technology/dp/B081FG1JQ1"> Link</a> |
 |:--:|:--:|:--:|:--:|
 | 2 HC-05 bluetooth modules | used for connecting controller and arm wirelessly | $15.99 |<a href="https://www.amazon.com/HiLetgo-Bluetooth-Transceiver-Integrated-Communication/dp/B07VL725T8/ref=sr_1_5?keywords=HC-05+bluetooth+module&qid=1689044968&sr=8-5"> Link</a> |
 |:--:|:--:|:--:|:--:|
