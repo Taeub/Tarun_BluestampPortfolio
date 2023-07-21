@@ -338,7 +338,7 @@ void loop() {
 
 # Schematics
 
-! [Schematics image](Screenshot 2023-07-21 at 11.13.19 AM.png)
+! [Schematics image](Schematics.png)
 
 # Bill of Materials
 
