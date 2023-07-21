@@ -37,140 +37,295 @@ My starter project is the Useless box, a prank box that provides hours of entert
 
 ```c++
 #include <CokoinoArm.h>
-#define buzzerPin 9
-
+#include <PS2X_lib.h>
+#include <SoftPWM.h>
 CokoinoArm arm;
-int xL,yL,xR,yR;
-
-const int act_max=10;    //Default 10 action,4 the Angle of servo
-int act[act_max][4];    //Only can change the number of action
-int num=0,num_do=0;
-
-void turnUD(void){
-  if(xL!=512){
-    if(0<=xL && xL<=100){arm.up(10);return;}
-    if(900<xL && xL<=1024){arm.down(10);return;} 
-    if(100<xL && xL<=200){arm.up(20);return;}
-    if(800<xL && xL<=900){arm.down(20);return;}
-    if(200<xL && xL<=300){arm.up(25);return;}
-    if(700<xL && xL<=800){arm.down(25);return;}
-    if(300<xL && xL<=400){arm.up(30);return;}
-    if(600<xL && xL<=700){arm.down(30);return;}
-    if(400<xL && xL<=480){arm.up(35);return;}
-    if(540<xL && xL<=600){arm.down(35);return;} 
+PS2X ps2x;
+int xL, yL, xR, yR, up, down, left, right;
+int error;
+const int act_max = 10;  //Default 10 action,4 the Angle of servo
+int act[act_max][4];     //Only can change the number of action
+int num = 0, num_do = 0;
+///////////////////////////////////////////////////////////////
+void turnUD(void) {
+  if (xL != 509) {
+    if (0 <= xL && xL <= 100) {
+      arm.up(10);
+      return;
     }
-}
-void turnLR(void){
-  if(yL!=512){
-    if(0<=yL && yL<=100){arm.right(0);return;}
-    if(900<yL && yL<=1024){arm.left(0);return;}  
-    if(100<yL && yL<=200){arm.right(5);return;}
-    if(800<yL && yL<=900){arm.left(5);return;}
-    if(200<yL && yL<=300){arm.right(10);return;}
-    if(700<yL && yL<=800){arm.left(10);return;}
-    if(300<yL && yL<=400){arm.right(15);return;}
-    if(600<yL && yL<=700){arm.left(15);return;}
-    if(400<yL && yL<=480){arm.right(20);return;}
-    if(540<yL && yL<=600){arm.left(20);return;}
+    if (900 < xL && xL <= 1024) {
+      arm.down(10);
+      return;
+    }
+    if (100 < xL && xL <= 200) {
+      arm.up(20);
+      return;
+    }
+    if (800 < xL && xL <= 900) {
+      arm.down(20);
+      return;
+    }
+    if (200 < xL && xL <= 300) {
+      arm.up(25);
+      return;
+    }
+    if (700 < xL && xL <= 800) {
+      arm.down(25);
+      return;
+    }
+    if (300 < xL && xL <= 400) {
+      arm.up(30);
+      return;
+    }
+    if (600 < xL && xL <= 700) {
+      arm.down(30);
+      return;
+    }
+    if (400 < xL && xL <= 480) {
+      arm.up(35);
+      return;
+    }
+    if (540 < xL && xL <= 600) {
+      arm.down(35);
+      return;
+    }
   }
 }
-void turnCO(void){
-  if(xR!=512){
-    if(0<=xR && xR<=100){arm.close(0);return;}
-    if(900<xR && xR<=1024){arm.open(0);return;} 
-    if(100<xR && xR<=200){arm.close(5);return;}
-    if(800<xR && xR<=900){arm.open(5);return;}
-    if(200<xR && xR<=300){arm.close(10);return;}
-    if(700<xR && xR<=800){arm.open(10);return;}
-    if(300<xR && xR<=400){arm.close(15);return;}
-    if(600<xR && xR<=700){arm.open(15);return;}
-    if(400<xR && xR<=480){arm.close(20);return;}
-    if(540<xR && xR<=600){arm.open(20);return;} 
+///////////////////////////////////////////////////////////////
+void turnLR(void) {
+  if (yL != 513) {
+    if (0 <= yL && yL <= 100) {
+      arm.right(0);
+      return;
     }
+    if (900 < yL && yL <= 1024) {
+      arm.left(0);
+      return;
+    }
+    if (100 < yL && yL <= 200) {
+      arm.right(5);
+      return;
+    }
+    if (800 < yL && yL <= 900) {
+      arm.left(5);
+      return;
+    }
+    if (200 < yL && yL <= 300) {
+      arm.right(10);
+      return;
+    }
+    if (700 < yL && yL <= 800) {
+      arm.left(10);
+      return;
+    }
+    if (300 < yL && yL <= 400) {
+      arm.right(15);
+      return;
+    }
+    if (600 < yL && yL <= 700) {
+      arm.left(15);
+      return;
+    }
+    if (400 < yL && yL <= 480) {
+      arm.right(20);
+      return;
+    }
+    if (540 < yL && yL <= 600) {
+      arm.left(20);
+      return;
+    }
+  }
 }
-void date_processing(int *x,int *y){
-  if(abs(512-*x)>abs(512-*y))
-    {*y = 512;}
-  else
-    {*x = 512;}
+///////////////////////////////////////////////////////////////
+void turnCO(void) {
+  if (xR != 513) {
+    if (0 <= xR && xR <= 100) {
+      arm.close(0);
+      return;
+    }
+    if (900 < xR && xR <= 1024) {
+      arm.open(0);
+      return;
+    }
+    if (100 < xR && xR <= 200) {
+      arm.close(5);
+      return;
+    }
+    if (800 < xR && xR <= 900) {
+      arm.open(5);
+      return;
+    }
+    if (200 < xR && xR <= 300) {
+      arm.close(10);
+      return;
+    }
+    if (700 < xR && xR <= 800) {
+      arm.open(10);
+      return;
+    }
+    if (300 < xR && xR <= 400) {
+      arm.close(15);
+      return;
+    }
+    if (600 < xR && xR <= 700) {
+      arm.open(15);
+      return;
+    }
+    if (400 < xR && xR <= 480) {
+      arm.close(20);
+      return;
+    }
+    if (540 < xR && xR <= 600) {
+      arm.open(20);
+      return;
+    }
+  }
 }
-void buzzer(int H,int L){
-  while(yR<420){
-    digitalWrite(buzzerPin,HIGH);
+///////////////////////////////////////////////////////////////
+void reset(void) {
+  if (ps2x.Button(PSB_L2) == 1 && ps2x.Button(PSB_R2) == 1) {
+    int a = arm.servo1.read();
+    int b = arm.servo2.read();
+    int c = arm.servo3.read();
+    int d = arm.servo4.read();
+    int signA = 90 - a > 0 ? 1 : -1;
+    int signB = 90 - b > 0 ? 1 : -1;
+    int signC = 90 - c > 0 ? 1 : -1;
+    int signD = 90 - d > 0 ? 1 : -1;
+    while (a != 90 || b != 90 || c != 90 || d != 90) {
+      if (a != 90) {
+        a = a + signA;
+        arm.servo1.write(a);
+      }
+      if (b != 90) {
+        b = b + signB;
+        arm.servo2.write(b);
+      }
+      if (c != 90) {
+        c = c + signC;
+        arm.servo3.write(c);
+      }
+      if (d != 90) {
+        d = d + signD;
+        arm.servo4.write(d);
+      }
+      delay(15);
+    }
+    // arm.servo1.write(90);
+    // arm.servo2.write(90);
+    // arm.servo3.write(90);
+    // arm.servo4.write(90);
+  }
+}
+void date_processing(int *x, int *y) {
+  if (abs(512 - *x) > abs(512 - *y)) {
+    *y = 512;
+  } else {
+    *x = 512;
+  }
+}
+///////////////////////////////////////////////////////////////
+void buzzer(int H, int L) {
+  while (yR < 420) {
     delayMicroseconds(H);
-    digitalWrite(buzzerPin,LOW);
     delayMicroseconds(L);
-    yR = arm.JoyStickR.read_y();
-    }
-  while(yR>600){
-    digitalWrite(buzzerPin,HIGH);
+    //yR = ps2x.Analog(PSS_RY);
+  }
+  while (yR > 600) {
     delayMicroseconds(H);
-    digitalWrite(buzzerPin,LOW);
     delayMicroseconds(L);
-    yR = arm.JoyStickR.read_y();
-    }
+    //yR = ps2x.Analog(PSS_RY);
+  }
 }
-void C_action(void){
-  if(yR>800){
+///////////////////////////////////////////////////////////////
+void C_action(void) {
+  if (yR > 800) {
     int *p;
-    p=arm.captureAction();
-    for(char i=0;i<4;i++){
-    act[num][i]=*p;
-    p=p+1;     
+    p = arm.captureAction();
+    for (char i = 0; i < 4; i++) {
+      act[num][i] = *p;
+      p = p + 1;
     }
     num++;
-    num_do=num;
-    if(num>=act_max){
-      num=0;
-      buzzer(600,400);
-      }
-    while(yR>600){yR = arm.JoyStickR.read_y();}
-    
+    num_do = num;
+    if (num >= act_max) {
+      num = 0;
+      buzzer(600, 400);
+    }
+    //while(yR>600){yR = ps2x.Analog(PSS_RY);}
+    // Serial.println(act[0][0]);
   }
 }
-void Do_action(void){
-  if(yR<220){
-    buzzer(200,300);
-    for(int i=0;i<num_do;i++){
-      arm.do_action(act[i],15);
-      }
-    num=0;
-    while(yR<420){yR = arm.JoyStickR.read_y();}
-    for(int i=0;i<2000;i++){
-      digitalWrite(buzzerPin,HIGH);
+///////////////////////////////////////////////////////////////
+void Do_action(void) {
+  if (yR < 220) {
+    for (int i = 0; i < num_do; i++) {
+      arm.do_action(act[i], 15);
+    }
+    num = 0;
+    while (yR < 420) { yR = ps2x.Analog(PSS_RY); }
+    for (int i = 0; i < 2000; i++) {
       delayMicroseconds(200);
-      digitalWrite(buzzerPin,LOW);
-      delayMicroseconds(300);        
+      delayMicroseconds(300);
     }
   }
 }
+///////////////////////////////////////////////////////////////
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(57600);
   //arm of servo motor connection pins
-  arm.ServoAttach(4,5,6,7);
+  pinMode(6, OUTPUT);  //forward left
+  pinMode(7, OUTPUT);  //backward
+  pinMode(8, OUTPUT);  //backward
+  pinMode(9, OUTPUT);  //forward
+
+  arm.ServoAttach(A0, A1, A2, A3);
   //arm of joy stick connection pins : xL,yL,xR,yR
-  arm.JoyStickAttach(A0,A1,A2,A3);
-  pinMode(buzzerPin,OUTPUT);
-}void loop() {
-  xL = arm.JoyStickL.read_x();
-  yL = arm.JoyStickL.read_y();
-  xR = arm.JoyStickR.read_x();
-  yR = arm.JoyStickR.read_y();
-  date_processing(&xL,&yL);
-  date_processing(&xR,&yR);
+  // arm.JoyStickAttach(A0,A1,A2,A3);
+  ps2x.config_gamepad(13, 11, 10, 12, true, true);
+}
+///////////////////////////////////////////////////////////////
+void loop() {
+
+  ps2x.read_gamepad();
+  xL = ps2x.Analog(PSS_LY);
+  yL = ps2x.Analog(PSS_LX);
+  xR = ps2x.Analog(PSS_RY);
+  yR = ps2x.Analog(PSS_RX);
+  up = ps2x.Button(PSB_GREEN);
+  left = ps2x.Button(PSB_PINK);
+  right = ps2x.Button(PSB_RED);
+  down = ps2x.Button(PSB_BLUE);
+  xL = map(xL, 0, 255, 0, 1023);
+  yL = map(yL, 0, 255, 0, 1023);
+  xR = map(xR, 0, 255, 0, 1023);
+  yR = map(yR, 0, 255, 0, 1023);
+  //date_processing(&xL,&yL);
+  //date_processing(&xR,&yR);
   turnUD();
   turnLR();
   turnCO();
-  C_action();
-  Do_action();
-  Serial.print(arm.JoyStickL.read_x());
-  Serial.print("\t");
-  Serial.print(arm.JoyStickL.read_y());
-  Serial.print("\t");
-  Serial.print(arm.JoyStickR.read_x());
-  Serial.print("\t");
-  Serial.print(arm.JoyStickR.read_y());
-  Serial.println(" ");
+  reset();
+  //C_action();
+  //Do_action();
+  Serial.print(xL);
+  // Serial.print("\t");
+  // Serial.print(yL);
+  // Serial.print("\t");
+  // Serial.print(xR);
+  // Serial.print("\t");
+  // Serial.print(yR);
+  // Serial.print(up);
+  // Serial.print("\t");
+  // Serial.print(left);
+  // Serial.print("\t");
+  // Serial.print(right);
+  // Serial.print("\t");
+  // Serial.print(down);
+  // Serial.println(" ");
+  // Serial.print(arm.JoyStickL.read_x(), arm.JoyStickL.read_y(), arm.JoyStickL.read_y(), arm.JoyStickR.read_x(), arm.JoyStickR.read_y());
+  Serial.println(arm.servo1.read());
+  delay(10);
 }
 ```
 
