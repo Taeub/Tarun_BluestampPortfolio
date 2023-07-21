@@ -190,7 +190,9 @@ void setup() {
 |:--:|:--:|:--:|:--:|
 | 1 4xAA battery pack | Used to power 2 joystick modules and a bluetooth module | $3.24 |<a href="https://www.amazon.com/LAMPVPATH-Battery-Holder-Leads-Wires/dp/B07T7MTRZX/ref=sr_1_3?crid=VMHQ24S2FOYN&keywords=4+AA+battery+holder&qid=1689046733&sprefix=4+aa+battery+holde%2Caps%2C141&sr=8-3"> Link</a>|
 |:--:|:--:|:--:|:--:|
-| Arduino nano | 2nd arduino nano used for the bluetooth module and joystick module to make controller wireless | $12.98 |<a href="https://www.amazon.com/Deegoo-ATmega328P-Microcontroller-Board-Arduino/dp/B07R9VWD39/ref=sr_1_9?crid=3T4FJ173WNZON&keywords=arduino+nano&qid=1689046855&sprefix=arduino+nano%2Caps%2C133&sr=8-9"> Link</a>|
+| Keyestudio arduino shield | Arduino shield that can house a Ps2 reciever | $7.80 |<a href="https://www.keyestudio.com/products/keyestudio-servo-driver-expansion-board-with-a-ps2-port"> Link</a>|
 |:--:|:--:|:--:|:--:|
-
+| Ps2 controller with bluetooth reciever| Controller to control robot and its reciever | $10.95 | <a href="https://electropeak.com/ps2-wireless-remote-control-handle-arduino-stm32-2-4g"> Link</a>|
+|:--:|:--:|:--:|:--:|
+| Arduino UNO | Paired with Keyestudio arduino shield | $28.50 | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/ref=sr_1_3?crid=1N6V0SXBF6C9M&keywords=arduino+uno&qid=1689955408&sprefix=arduino+uno%2Caps%2C176&sr=8-3"> Link</a>|
 
