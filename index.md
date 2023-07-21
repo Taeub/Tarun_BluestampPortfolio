@@ -338,7 +338,7 @@ void loop() {
 
 # Schematics
 
-! [Schematics image](Schematics.png)
+![Schematics image](Schematics.png)
 
 # Bill of Materials
 
