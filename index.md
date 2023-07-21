@@ -6,6 +6,13 @@ The 3 Joint Robotic Arm is a fun device that is controlled using a controller an
 | Tarun S | Irvington High School | Electrical Engineering/ Mechanical Engineering | Incoming Junior
 
 ![Headstone Image](Tarun-Headshot.png)
+
+# Final Milestone
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/geaqWOU4BC0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+My final milestone was my modification to make the controller bluetooth. The robot functions the same, but all i have done is switched out the controller and made the controller wireless by using a different arduino and attaching the PS2 receiver to the port on the arduino. After that I just switched out the inputs with the inputs of the controller sticks axis in my code and also deleted excess code. My controller itself is powered by 2 triple-A batteries. One challenge was the fact that before i tried using a different arduino and a different controller, I tried to pair 2 different bluetooth modules and it was just not working. I was having trouble getting the arduino to print the values I wanted and these problems went on for close to a week. I then looked for other solutions for my bluetooth controller and then chose to use the ps2 controller. Next I plan to add motors to my project to give it mobility. 
+
   
 # Third Milestone
 
