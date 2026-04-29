@@ -1,9 +1,9 @@
 # 3 Joint Robotic Arm With Claw
 The 3 Joint Robotic Arm is a fun device that is controlled using a controller and can move 360 degrees! The claw on the robot is even capable of carrying small objects. The arm is powered by 4 servos that help move the base, hinges, and claw. The claw is controlled seamlessly using 2 joystick modules screwed onto a base that is shaped like a video game controller!
 
-| **Engineer** | **School** | **Area of Interest** | **Grade** |
+| **Engineer** | **School** | **Major** | **Year** |
 |:--:|:--:|:--:|:--:|
-| Tarun S | Irvington High School | Electrical Engineering/ Mechanical Engineering | Incoming Junior
+| Tarun S | UC Irvine | Electrical Engineering | 1st Year
 
 <img src="Tarun-Project.png" width="50%" height="50%" />
 
