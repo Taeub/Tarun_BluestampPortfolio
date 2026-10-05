@@ -3,7 +3,7 @@ The 3 Joint Robotic Arm is a fun device that is controlled using a controller an
 
 | **Engineer** | **School** | **Major** | **Year** |
 |:--:|:--:|:--:|:--:|
-| Tarun S | UC Irvine | Electrical Engineering | 1st Year
+| Tarun S | UC Irvine | Electrical Engineering | 2nd Year
 
 <img src="Tarun-Project.png" width="50%" height="50%" />
 
